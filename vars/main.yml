@@ -1,0 +1,5 @@
+---
+the_user_dir: "/home/{{ the_user }}"
+the_user_my_conf_dir: "{{ the_user_dir }}/.my_conf"
+the_user_my_gitconfig_path: "{{ the_user_my_conf_dir }}/.gitconfig"
+the_user_my_bashrc_git_path: "{{ the_user_my_conf_dir }}/.bashrc_git"
