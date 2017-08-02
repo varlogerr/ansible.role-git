@@ -1,0 +1,14 @@
+---
+- name: add user custom bashrc git config
+  template:
+    src: .my_bashrc_git.j2
+    dest: "{{ the_user_my_bashrc_git_path }}"
+    owner: "{{ the_user }}"
+    mode: 0600
+
+- name: include custom user bashrc to user bashrc
+  lineinfile:
+    dest: "{{ the_user_dir }}/.bashrc"
+    create: yes
+    owner: "{{ the_user }}"
+    line: "source {{ the_user_my_bashrc_git_path }}"

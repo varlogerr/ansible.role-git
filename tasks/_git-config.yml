@@ -1,0 +1,16 @@
+---
+- name: add the user custom gitconfig
+  template:
+    src: .my_gitconfig.j2
+    dest: "{{ the_user_my_gitconfig_path }}"
+    owner: "{{ the_user }}"
+    mode: 0600
+
+- name: include custom gitconfig to default gitconfig
+  blockinfile:
+    dest: "{{ the_user_dir }}/.gitconfig"
+    create: yes
+    owner: "{{ the_user }}"
+    block: |
+      [include]
+        path = "{{ the_user_my_gitconfig_path }}"
