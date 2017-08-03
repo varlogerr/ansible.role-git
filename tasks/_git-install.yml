@@ -14,7 +14,6 @@
     codename: trusty
     filename: git
     state: present
-    validate_certs: no
 
 - name: update cache
   shell: apt-get update
